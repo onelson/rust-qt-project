@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  dev:
+    build:
+      context: .
+      # customize this dockerfile as needed
+      dockerfile: dockerfiles/dev/Dockerfile
+    volumes:
+      - .:/code
+      # a data volume backs this directory so you can install whatever
+      # tools you need and have them be there from run to run.
+      - cargo-cache:/home/developer/.cargo
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: /bin/true
+    environment:
+        - TERM
+        - DISPLAY
+        - XDG_CURRENT_DESKTOP
+
+volumes:
+  cargo-cache:

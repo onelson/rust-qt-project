@@ -1,0 +1,7 @@
+*.swp
+target
+build
+.idea
+*.iml
+*~
+*.qmlc
